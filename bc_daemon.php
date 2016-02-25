@@ -66,10 +66,10 @@ function getinfo ()
     return ($info);
 }
 
-function getnetworkhashps ($block_index=NULL)
+function getnetworkghashps ($block_index=NULL)
 {
     //	The JSON-RPC request starts with a method name
-    $request_array["method"] = "getnetworkhashps";
+    $request_array["method"] = "getnetworkghps";
     
     //	block index is an optional parameter. If no block
     //	index is specified you get the network hashrate for 

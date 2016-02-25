@@ -52,12 +52,12 @@ else
     echo "		</div>\n";
     echo "\n";
 
-    $net_speed = getnetworkhashps ();
+    $net_speed = getnetworkghashps ();
     
     if ($net_speed != "")
     {
 	echo "		<div class=\"node_detail\">\n";
-	echo "			<span class=\"node_desc\">网络算力 H/s:</span><br>\n";
+	echo "			<span class=\"node_desc\">网络算力 GH/s:</span><br>\n";
 	echo "			".$net_speed."\n";
 	echo "		</div>\n";
 	echo "\n";
