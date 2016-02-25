@@ -1,184 +1,184 @@
 <?php
-	function site_header ($title, $auth_list="")
-	{
-		echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n\n";
-		echo "<head>\n\n";
-	
-		echo "	<title>".$title."</title>\n\n";
-	
-		echo "	<link rel=\"stylesheet\" type=\"text/css\" href=\"block_crawler.css\">\n\n";
-	
-		echo "</head>\n";
-		echo "<body>\n";
-		echo "\n";
-		
-		echo "	<div id=\"site_head\">\n";
-		echo "\n";
-		
-		echo "		<div id=\"site_head_logo\">\n";
-		echo "\n";
-		
-		echo "			<h1><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
-		echo "				Block Crawler\n";
-		echo "			</a></h1>\n";
-		echo "			<h3><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
-		echo "				Block Chain Viewer\n";
-		echo "			</a></h3>\n";
-		echo "\n";
-		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div id=\"page_wrap\">\n";
-		echo "\n";
-	}
-	
-	function site_footer ()
-	{
-	//	The page_wrap div is opened in the last line of the site_header function.	
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div id=\"donor_box\">\n";
-		echo "\n";
-		
-		echo "		BlockCrawler Script Created By Jake Paysnoe - Donations: 1MoWrpf4DjLiL1ALtE6WAAPfHj1aZt38CE \n";
-		
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "</body>\n";
-		echo "</html>";
-		exit;
-	}
-	
-	function block_detail ($block_id, $hash=FALSE)
-	{
-		if ($hash == TRUE)
-		{
-			$raw_block = getblock ($block_id);
-		}
-		
-		else
-		{	
-			$block_hash = getblockhash (intval ($block_id));
-			
-			$raw_block = getblock ($block_hash);
-		}
-		
-		echo "	<div class=\"block_banner\">\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockbanner_left\">\n";
-		echo "			Block Height: ".$raw_block["height"]."\n";
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockbanner_right\">\n";
-		echo "			Block Time: ".date ("F j, Y, H:i:s", $raw_block["time"])."\n";
-		echo "		</div>\n";
-		echo "\n";
+function site_header ($title, $auth_list="")
+{
+    echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n\n";
+    echo "<head>\n\n";
+    
+    echo "	<title>".$title."</title>\n\n";
+    
+    echo "	<link rel=\"stylesheet\" type=\"text/css\" href=\"block_crawler.css\">\n\n";
+    
+    echo "</head>\n";
+    echo "<body>\n";
+    echo "\n";
+    
+    echo "	<div id=\"site_head\">\n";
+    echo "\n";
+    
+    echo "		<div id=\"site_head_logo\">\n";
+    echo "\n";
+    
+    echo "			<h1><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
+    echo "				Block Crawler\n";
+    echo "			</a></h1>\n";
+    echo "			<h3><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
+    echo "				Block Chain Viewer\n";
+    echo "			</a></h3>\n";
+    echo "\n";
+    
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div id=\"page_wrap\">\n";
+    echo "\n";
+}
 
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div class=\"blockdetail\">\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\">Block Version</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["version"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\">Block Size</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["size"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\"># of Confirmations</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["confirmations"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div class=\"blockdetail\">\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\">Block Bits</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["bits"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\">Block Nonce</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["nonce"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blockdetail_detail\">\n";
-		echo "			<div class=\"blockdetail_header\">Block Difficulty</div>\n";		
-		echo "			<div class=\"blockdetail_content\">\n";
-		echo "				".$raw_block["difficulty"]."\n";
-		echo "			</div>\n";		
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "	</div>\n";
-		echo "\n";
-		
-		detail_display ("Merkle Root", $raw_block["merkleroot"]);
-		
-		detail_display ("Block Hash", blockhash_link ($raw_block["hash"]));
-		
-		echo "	<div class=\"blocknav\">\n";
-		echo "\n";
-		
-		echo "		<div class=\"blocknav_prev\">\n";
-		echo "			<a href=\"".$_SERVER["PHP_SELF"]."?block_hash=".$raw_block["previousblockhash"]."\" title=\"View Previous Block\"><- Previous Block</a>\n";
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blocknav_news\">\n";
-		echo "			Block Time: ".date ("F j, Y, g:i a", $raw_block["time"])."\n";
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "		<div class=\"blocknav_next\">\n";
-		echo "			<a href=\"".$_SERVER["PHP_SELF"]."?block_hash=".$raw_block["nextblockhash"]."\" title=\"View Next Block\">Next Block -></a>\n";
-		echo "		</div>\n";
-		echo "\n";
-		
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div class=\"txlist_header\">\n";
-		echo "		Transactions In This Block\n";		
-		echo "	</div>\n";
-		echo "\n";
-		
-		echo "	<div class=\"txlist_wrap\">\n";
-		
-		foreach ($raw_block["tx"] as $index => $tx)
-		{
+function site_footer ()
+{
+    //	The page_wrap div is opened in the last line of the site_header function.	
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div id=\"donor_box\">\n";
+    echo "\n";
+    
+    echo "		BlockCrawler Script Created By Jake Paysnoe - Donations: 1MoWrpf4DjLiL1ALtE6WAAPfHj1aZt38CE \n";
+    
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "</body>\n";
+    echo "</html>";
+    exit;
+}
+
+function block_detail ($block_id, $hash=FALSE)
+{
+    if ($hash == TRUE)
+    {
+	$raw_block = getblock ($block_id);
+    }
+    
+    else
+    {	
+	$block_hash = getblockhash (intval ($block_id));
+	
+	$raw_block = getblock ($block_hash);
+    }
+    
+    echo "	<div class=\"block_banner\">\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockbanner_left\">\n";
+    echo "			Block Height: ".$raw_block["height"]."\n";
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockbanner_right\">\n";
+    echo "			Block Time: ".date ("F j, Y, H:i:s", $raw_block["time"])."\n";
+    echo "		</div>\n";
+    echo "\n";
+
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div class=\"blockdetail\">\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\">Block Version</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["version"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\">Block Size</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["size"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\"># of Confirmations</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["confirmations"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div class=\"blockdetail\">\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\">Block Bits</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["bits"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\">Block Nonce</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["nonce"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blockdetail_detail\">\n";
+    echo "			<div class=\"blockdetail_header\">Block Difficulty</div>\n";		
+    echo "			<div class=\"blockdetail_content\">\n";
+    echo "				".$raw_block["difficulty"]."\n";
+    echo "			</div>\n";		
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "	</div>\n";
+    echo "\n";
+    
+    detail_display ("Merkle Root", $raw_block["merkleroot"]);
+    
+    detail_display ("Block Hash", blockhash_link ($raw_block["hash"]));
+    
+    echo "	<div class=\"blocknav\">\n";
+    echo "\n";
+    
+    echo "		<div class=\"blocknav_prev\">\n";
+    echo "			<a href=\"".$_SERVER["PHP_SELF"]."?block_hash=".$raw_block["previousblockhash"]."\" title=\"View Previous Block\"><- Previous Block</a>\n";
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blocknav_news\">\n";
+    echo "			Block Time: ".date ("F j, Y, g:i a", $raw_block["time"])."\n";
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "		<div class=\"blocknav_next\">\n";
+    echo "			<a href=\"".$_SERVER["PHP_SELF"]."?block_hash=".$raw_block["nextblockhash"]."\" title=\"View Next Block\">Next Block -></a>\n";
+    echo "		</div>\n";
+    echo "\n";
+    
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div class=\"txlist_header\">\n";
+    echo "		Transactions In This Block\n";		
+    echo "	</div>\n";
+    echo "\n";
+    
+    echo "	<div class=\"txlist_wrap\">\n";
+    
+    foreach ($raw_block["tx"] as $index => $tx)
+    {
 			echo "		<div class=\"txlist_showtx\" id=\"showtx_".$index."\">\n";
 			echo "			<a href=\"".$_SERVER["PHP_SELF"]."?transaction=".$tx."\" title=\"Transaction Details\">\n";
 			echo "				".$tx."\n";

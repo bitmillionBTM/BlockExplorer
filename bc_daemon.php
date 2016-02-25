@@ -4,9 +4,9 @@
 	Wallet Configuration
 ******************************************************************************/
 	$GLOBALS["wallet_ip"] = "127.0.0.1";
-	$GLOBALS["wallet_port"] = "8332";
-	$GLOBALS["wallet_user"] = "usrename";
-	$GLOBALS["wallet_pass"] = "password";
+	$GLOBALS["wallet_port"] = "9802";
+	$GLOBALS["wallet_user"] = "bitcoinrpc";
+	$GLOBALS["wallet_pass"] = "bitcoinpass";
 	
 
 /******************************************************************************
