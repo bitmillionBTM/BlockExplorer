@@ -3,7 +3,7 @@
     padding:0px;
     
     text-align:center;
-    font-family:sans-serif;
+    font-family:"微软雅黑";
     
 }
 
@@ -17,26 +17,24 @@ body {
 
 #site_head {
     width:768px;
-    
     margin:10px auto;
-    
-    background-color:#ffffff;
+    background-color:#ffa2a2;
 }
 
 #donor_box {
     width:768px;
-    height:10px;
-    
-    margin:2px auto;
-    
+    height:50px;
+    margin:0 auto;
+    bottom:0;
+    position:fixed;
     font-size:.8em;
-    color:#ffffff;
+    color:#000000;
 }
 
 #page_wrap {
-    width:760px;
+    width:768px;
     
-    background-color:#ffffff;
+    background-color:#d0d0d0;
     
     margin:5px auto;
     
@@ -277,7 +275,7 @@ body {
 
 .detail_title {
     width:130px;
-    height:100%;
+    #height:100%;
     
     background-color:#000000;
     color:#ffffff;
@@ -297,7 +295,6 @@ body {
     text-align:left;
     line-height:32px;
     vertical-align:middle;
-    
     float:right;
 }
 
