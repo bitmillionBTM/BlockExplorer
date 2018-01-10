@@ -19,10 +19,10 @@ function site_header ($title, $auth_list="")
     echo "\n";
     
     echo "			<h1><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
-    echo "				Block Crawler\n";
+    echo "				Block Explore Bitmillion \n";
     echo "			</a></h1>\n";
     echo "			<h3><a href=\"".$_SERVER["PHP_SELF"]."\" title=\"Home Page\">\n";
-    echo "				Block Chain Viewer\n";
+    echo "				Block Chain \n";
     echo "			</a></h3>\n";
     echo "\n";
     
@@ -45,7 +45,7 @@ function site_footer ()
     echo "	<div id=\"donor_box\">\n";
     echo "\n";
     
-    echo "		BlockCrawler Script Created By Jake Paysnoe - Donations: 1MoWrpf4DjLiL1ALtE6WAAPfHj1aZt38CE \n";
+    echo "		2018 Bitmillion.org @rocha  \n";
     
     echo "	</div>\n";
     echo "\n";
@@ -334,7 +334,7 @@ function block_detail ($block_id, $hash=FALSE)
 	}
 	
 /******************************************************************************
-	This script is Copyright © 2013 Jake Paysnoe.
+	This script is Copyright Â© 2013 Jake Paysnoe.
 	I hereby release this script into the public domain.
 	Jake Paysnoe Jun 26, 2013
 ******************************************************************************/
